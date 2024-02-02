@@ -1,7 +1,7 @@
 'use strict';
 
 const APP_PATH = `/AuthGuideDemo`;
-const AUD = `https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/`;
+const AUD = `user`;
 let auth0 = null;
 const fetchAuthConfig = () => fetch("auth_config.json"); // auth_config.json読み込み
 
