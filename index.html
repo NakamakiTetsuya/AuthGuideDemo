@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Sample</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+      
+      label {
+        margin-bottom: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Login Sample</h2>
+    <p>実践: 認証</p>
+    <button id="btn-login" disabled="true" onclick="login()">ログイン</button>
+    <button id="btn-logout" disabled="true" onclick="logout()">ログアウト</button>
+    
+    <!--ログイン後に表示-->
+    <div class="hidden" id="gated-content">
+      <p>
+        <strong>ログイン済みです</strong>
+      </p>
+      <label>
+        アクセストークン 
+        <pre id="ipt-access-token"></pre>
+      </label>
+      <label>
+        ユーザー情報:
+        <pre id="ipt-user-profile"></pre>
+      </label>
+
+      <label>
+        プロフィール画像:
+        <img src="" id="ipt-user-profile-image" width="200px">
+      </label>
+    </div>
+
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
