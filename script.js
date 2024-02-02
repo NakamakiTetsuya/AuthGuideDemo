@@ -12,7 +12,7 @@ const configureClient = async () => {
     domain: config.domain,
     client_id: config.clientId,
     authorizationParams: {
-      audience: "https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/",
+      audience: `https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/`,
       redirect_uri: "https://nakamakitetsuya.github.io/AuthGuideDemo"
     }
   });
@@ -58,7 +58,7 @@ const updateUI = async () => {
       "ipt-access-token"
     ).innerHTML = await auth0.getTokenSilently({
       authorizationParams: {
-        audience: "https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/",
+        audience: `https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/`,
         redirect_uri: "https://nakamakitetsuya.github.io/AuthGuideDemo"
       }
     });
