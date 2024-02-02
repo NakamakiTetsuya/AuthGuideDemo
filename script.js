@@ -1,6 +1,7 @@
 'use strict';
 
 const APP_PATH = `/AuthGuideDemo`;
+const AUD = `https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/`;
 let auth0 = null;
 const fetchAuthConfig = () => fetch("auth_config.json"); // auth_config.json読み込み
 
@@ -12,8 +13,7 @@ const configureClient = async () => {
     domain: config.domain,
     client_id: config.clientId,
     authorizationParams: {
-      audience: `https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/`,
-      redirect_uri: "https://nakamakitetsuya.github.io/AuthGuideDemo"
+      audience: AUD
     }
   });
 };
@@ -58,8 +58,7 @@ const updateUI = async () => {
       "ipt-access-token"
     ).innerHTML = await auth0.getTokenSilently({
       authorizationParams: {
-        audience: `https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/`,
-        redirect_uri: "https://nakamakitetsuya.github.io/AuthGuideDemo"
+        audience: AUD
       }
     });
 
