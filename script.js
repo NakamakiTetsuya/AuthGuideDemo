@@ -13,7 +13,8 @@ const configureClient = async () => {
     domain: config.domain,
     client_id: config.clientId,
     authorizationParams: {
-      audience: AUD
+      audience: AUD,
+      scope: "user:test"
     }
   });
 };
@@ -58,7 +59,8 @@ const updateUI = async () => {
       "ipt-access-token"
     ).innerHTML = await auth0.getTokenSilently({
       authorizationParams: {
-        audience: AUD
+        audience: AUD,
+        scope: "user:test"
       }
     });
 
