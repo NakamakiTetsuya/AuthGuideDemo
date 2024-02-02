@@ -10,7 +10,11 @@ const configureClient = async () => {
 
   auth0 = await createAuth0Client({
     domain: config.domain,
-    client_id: config.clientId
+    client_id: config.clientId,
+    authorizationParams: {
+      audience: "https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/",
+      redirect_uri: "https://nakamakitetsuya.github.io/AuthGuideDemo"
+    }
   });
 };
 
@@ -52,7 +56,12 @@ const updateUI = async () => {
 
     document.getElementById(
       "ipt-access-token"
-    ).innerHTML = await auth0.getTokenSilently();
+    ).innerHTML = await auth0.getTokenSilently({
+      authorizationParams: {
+        audience: "https://dev-isov8ib8r2mxtupt.us.auth0.com/api/v2/",
+        redirect_uri: "https://nakamakitetsuya.github.io/AuthGuideDemo"
+      }
+    });
 
     document.getElementById("ipt-user-profile").innerHTML = JSON.stringify(
       await auth0.getUser(), null, 4
@@ -69,7 +78,8 @@ const updateUI = async () => {
 
 const login = async () => {
   await auth0.loginWithRedirect({
-    redirect_uri: window.location.origin + APP_PATH
+    redirect_uri: window.location.origin + APP_PATH,
+    
   });
 };
 
